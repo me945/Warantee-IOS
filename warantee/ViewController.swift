@@ -7,9 +7,23 @@
 //
 
 import UIKit
+import Firebase
 
 class ViewController: UIViewController {
 
+    //logout
+    @IBAction func signOut(_ sender: Any) {
+    
+        let firebaseAuth = Auth.auth()
+        do {
+          try firebaseAuth.signOut()
+            self.performSegue(withIdentifier: "goToLogin", sender: self)
+        } catch let signOutError as NSError {
+          print ("Error signing out: %@", signOutError)
+        }
+        
+    }
+    
     struct Response: Codable { // or Decodable
       let foo: String
     }
