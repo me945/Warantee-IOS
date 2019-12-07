@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginController: UIViewController {
 
+    @IBOutlet weak var txtEmail: UITextField!
+    @IBOutlet weak var txtPassword: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,8 +22,31 @@ class LoginController: UIViewController {
     }
     
 
- 
- 
+    
+    
+    @IBAction func login(_ sender: Any) {
+        
+        let email = txtEmail.text!
+        let password = txtPassword.text!
+        
+        Auth.auth().signIn(withEmail: email!, password: password!) { [weak self] authResult, error in
+          guard let strongSelf = self else { return }
+          
+            if authResult != nil {
+                print("Successsss login")
+                self!.performSegue(withIdentifier: "goToMenu", sender: self)
+            }else{
+                print(error)
+            }
+            
+            
+            
+        }
+        
+    }
+    
+    @IBAction func signup(_ sender: Any) {
+    }
     /*
     // MARK: - Navigation
 
