@@ -29,7 +29,7 @@ class LoginController: UIViewController {
         let email = txtEmail.text!
         let password = txtPassword.text!
         
-        Auth.auth().signIn(withEmail: email!, password: password!) { [weak self] authResult, error in
+        Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
           guard let strongSelf = self else { return }
           
             if authResult != nil {
