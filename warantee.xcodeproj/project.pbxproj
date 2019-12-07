@@ -14,6 +14,7 @@
 		3FEBEF70239BA19600A5A7E4 /* warantee.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3FEBEF6E239BA19600A5A7E4 /* warantee.xcdatamodeld */; };
 		3FEBEF72239BA19800A5A7E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FEBEF71239BA19800A5A7E4 /* Assets.xcassets */; };
 		3FEBEF75239BA19800A5A7E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FEBEF73239BA19800A5A7E4 /* LaunchScreen.storyboard */; };
+		FA205933239BD05D0064686F /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA205932239BD05D0064686F /* LoginController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		3FEBEF71239BA19800A5A7E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3FEBEF74239BA19800A5A7E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3FEBEF76239BA19800A5A7E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA205932239BD05D0064686F /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				3FEBEF67239BA19600A5A7E4 /* SceneDelegate.swift */,
 				3FEBEF69239BA19600A5A7E4 /* ViewController.swift */,
 				3FEBEF6B239BA19600A5A7E4 /* Main.storyboard */,
+				FA205932239BD05D0064686F /* LoginController.swift */,
 				3FEBEF71239BA19800A5A7E4 /* Assets.xcassets */,
 				3FEBEF73239BA19800A5A7E4 /* LaunchScreen.storyboard */,
 				3FEBEF76239BA19800A5A7E4 /* Info.plist */,
@@ -145,6 +148,7 @@
 				3FEBEF6A239BA19600A5A7E4 /* ViewController.swift in Sources */,
 				3FEBEF66239BA19600A5A7E4 /* AppDelegate.swift in Sources */,
 				3FEBEF68239BA19600A5A7E4 /* SceneDelegate.swift in Sources */,
+				FA205933239BD05D0064686F /* LoginController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
