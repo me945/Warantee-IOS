@@ -31,21 +31,23 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-        if let url = URL(string: "https://api.myjson.com/bins/yfua8") {
-            var request = URLRequest(url: url)
-            request.setValue("secret-keyValue", forHTTPHeaderField: "secret-key")
-           URLSession.shared.dataTask(with: url) { data, response, error in
-              if let data = data {
-                  do {
-                     let res = try JSONDecoder().decode(Response.self, from: data)
-                     print(res.foo)
-                  } catch let error {
-                     print(error)
-                  }
-               }
-           }.resume()
-        }
+//        if Auth.auth().currentUser != nil {
+//            if let url = URL(string: "https://www.vrpacman.com/waranty") {
+//                var request = URLRequest(url: url)
+//                request.setValue("AuthToken", forHTTPHeaderField:(Auth.auth().currentUser?.refreshToken)!)
+//               URLSession.shared.dataTask(with: url) { data, response, error in
+//                  if let data = data {
+//                      do {
+//                         //let res = try JSONDecoder().decode(Response.self, from: data)
+//                         print(data)
+//                      } catch let error {
+//                         print(error)
+//                      }
+//                   }
+//               }.resume()
+//            }
+//            print(Auth.auth().currentUser?.refreshToken)
+//        }
     }
 
 
