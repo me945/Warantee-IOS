@@ -33,7 +33,7 @@ class LoginController: UIViewController {
                 return
             }
             print("login success")
-            //self?.goToMenu()
+            self?.goToMenu()
         }
         
     }
