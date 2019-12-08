@@ -28,11 +28,19 @@ class SignupController: UIViewController {
         
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
           
-            if authResult != nil {
-                print("Successsss created a new account")
-                self.performSegue(withIdentifier: "goToLogin", sender: self)
-            }else{
-                print(error)
+            if let firebaseError = error {
+                print(firebaseError.localizedDescription)
+                return
+            }
+            
+            //if success, logout and go to login
+            let firebaseAuth = Auth.auth()
+            do {
+              try firebaseAuth.signOut()
+                print("user logged out")
+                //self.dismiss(animated: true, completion: nil)
+            } catch let signOutError as NSError {
+              print ("Error signing out: %@", signOutError)
             }
            
         }
