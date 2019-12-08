@@ -18,7 +18,7 @@ class ViewController: UIViewController {
         do {
           try firebaseAuth.signOut()
             print("user logged out")
-            dismiss(animated: true, completion: nil)
+            //dismiss(animated: true, completion: nil)
         } catch let signOutError as NSError {
           print ("Error signing out: %@", signOutError)
         }
@@ -31,6 +31,32 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        //if user logs out
+        Auth.auth().addStateDidChangeListener
+        { (auth, user) in
+            
+            if user == nil {
+              self.goToLogin()
+            }
+            
+        }
+        
+        
+        if let url = URL(string: "https://api.myjson.com/bins/yfua8") {
+            var request = URLRequest(url: url)
+            request.setValue("secret-keyValue", forHTTPHeaderField: "secret-key")
+           URLSession.shared.dataTask(with: url) { data, response, error in
+              if let data = data {
+                  do {
+                     let res = try JSONDecoder().decode(Response.self, from: data)
+                     print(res.foo)
+                  } catch let error {
+                     print(error)
+                  }
+               }
+           }.resume()
+        }
 //        if Auth.auth().currentUser != nil {
 //            if let url = URL(string: "https://www.vrpacman.com/waranty") {
 //                var request = URLRequest(url: url)
@@ -50,6 +76,15 @@ class ViewController: UIViewController {
 //        }
     }
 
+    
+    func goToLogin(){
+        let storyboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let loginVC:LoginController = storyboard.instantiateViewController(withIdentifier: "LoginController") as! LoginController
+        
+        //go to new screen in fullscreen
+        loginVC.modalPresentationStyle = .fullScreen
+        self.present(loginVC, animated: true, completion: nil)
+    }
 
 }
 

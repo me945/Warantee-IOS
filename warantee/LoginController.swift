@@ -17,7 +17,15 @@ class LoginController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-      
+      //if user exist, go to Menu
+      Auth.auth().addStateDidChangeListener
+      { (auth, user) in
+          
+          if user != nil {
+            self.goToMenu()
+          }
+          
+      }
         // Do any additional setup after loading the view.
     }
     
@@ -33,7 +41,7 @@ class LoginController: UIViewController {
                 return
             }
             print("login success")
-            self?.goToMenu()
+            //self?.goToMenu()
         }
         
     }
