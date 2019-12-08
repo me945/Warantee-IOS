@@ -13,11 +13,32 @@ import Firebase
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        
+        Auth.auth().addStateDidChangeListener
+        { (auth, user) in
+            
+            let storyboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            if user != nil {
+                let menuVC:ViewController = storyboard.instantiateViewController(withIdentifier: "MenuVC") as! ViewController
+                
+                self.window?.rootViewController = menuVC
+                self.window?.makeKeyAndVisible()
+            }else{
+                let loginVC:LoginController = storyboard.instantiateViewController(withIdentifier: "LoginController") as! LoginController
+                
+                self.window?.rootViewController = loginVC
+                self.window?.makeKeyAndVisible()
+              
+            }
+            
+        }
+        
         return true
     }
 
