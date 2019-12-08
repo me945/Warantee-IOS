@@ -38,7 +38,7 @@ class SignupController: UIViewController {
             do {
               try firebaseAuth.signOut()
                 print("user logged out")
-                //self.dismiss(animated: true, completion: nil)
+                self.dismiss(animated: true, completion: nil)
             } catch let signOutError as NSError {
               print ("Error signing out: %@", signOutError)
             }
