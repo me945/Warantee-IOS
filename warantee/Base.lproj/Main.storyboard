@@ -10,7 +10,7 @@
         <!--Login Controller-->
         <scene sceneID="8q2-lu-eVP">
             <objects>
-                <viewController id="qGZ-wI-PbD" customClass="LoginController" customModule="warantee" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginController" id="qGZ-wI-PbD" customClass="LoginController" customModule="warantee" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tO6-ry-vHh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -28,7 +28,6 @@
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="signup:" destination="qGZ-wI-PbD" eventType="touchUpInside" id="SQR-Re-LxY"/>
                                     <segue destination="xcc-69-7eM" kind="presentation" identifier="goToSignup" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="6kn-h5-wab"/>
                                 </connections>
                             </button>
@@ -42,9 +41,13 @@
                                 <state key="normal" title="LOGIN">
                                     <color key="titleColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="login:" destination="qGZ-wI-PbD" eventType="touchUpInside" id="Fg5-oV-irC"/>
-                                    <segue destination="BYZ-38-t0r" kind="presentation" identifier="goToMenu" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="2Ks-W2-QaL"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="warantee" translatesAutoresizingMaskIntoConstraints="NO" id="Osw-Rh-lBB">
@@ -162,9 +165,13 @@
                                 <state key="normal" title="SIGN IN">
                                     <color key="titleColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="signin:" destination="xcc-69-7eM" eventType="touchUpInside" id="woY-y4-uCt"/>
-                                    <segue destination="qGZ-wI-PbD" kind="presentation" identifier="goToLogin" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="iiD-xf-gcq"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please enter password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7eu-kx-5d6">
@@ -207,7 +214,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="warantee" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MenuVC" id="BYZ-38-t0r" customClass="ViewController" customModule="warantee" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -225,7 +232,6 @@
                                 <state key="normal" title="Logout"/>
                                 <connections>
                                     <action selector="signOut:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lcG-xB-5lA"/>
-                                    <segue destination="qGZ-wI-PbD" kind="presentation" identifier="goToLogin" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="uXt-o4-rj0"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -243,7 +249,4 @@
         <image name="mountain" width="1000" height="1500"/>
         <image name="warantee" width="230" height="199"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="uXt-o4-rj0"/>
-    </inferredMetricsTieBreakers>
 </document>
