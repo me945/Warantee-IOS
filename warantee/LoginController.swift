@@ -21,40 +21,38 @@ class LoginController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
-    
-    
     @IBAction func login(_ sender: Any) {
         
         let email = txtEmail.text!
         let password = txtPassword.text!
         
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
-          guard let strongSelf = self else { return }
-          
-            if authResult != nil {
-                print("Successsss login")
-                self!.performSegue(withIdentifier: "goToMenu", sender: self)
-            }else{
-                print(error)
+           
+            if let firebaseError = error {
+                print(firebaseError.localizedDescription)
+                return
             }
-            
-            
-            
+            print("login success")
+            self?.goToMenu()
         }
         
     }
     
-    @IBAction func signup(_ sender: Any) {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
     }
-    */
+    
+    func goToMenu(){
+        let storyboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let menuVC:ViewController = storyboard.instantiateViewController(withIdentifier: "MenuVC") as! ViewController
+        
+        //go to new screen in fullscreen
+        menuVC.modalPresentationStyle = .fullScreen
+        self.present(menuVC, animated: true, completion: nil)
+    }
 
 }

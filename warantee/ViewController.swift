@@ -17,7 +17,8 @@ class ViewController: UIViewController {
         let firebaseAuth = Auth.auth()
         do {
           try firebaseAuth.signOut()
-            self.performSegue(withIdentifier: "goToLogin", sender: self)
+            print("user logged out")
+            dismiss(animated: true, completion: nil)
         } catch let signOutError as NSError {
           print ("Error signing out: %@", signOutError)
         }
