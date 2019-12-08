@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,9 +15,10 @@
 		3FEBEF72239BA19800A5A7E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FEBEF71239BA19800A5A7E4 /* Assets.xcassets */; };
 		3FEBEF75239BA19800A5A7E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FEBEF73239BA19800A5A7E4 /* LaunchScreen.storyboard */; };
 		6B865133A4D19743E172FAA7 /* Pods_warantee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50DBAF21B1CD2F3FF3D0025B /* Pods_warantee.framework */; };
+		C64044A4239CEA4800FE3A27 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C64044A3239CEA4800FE3A27 /* GoogleService-Info.plist */; };
+		C64044A6239CEB6300FE3A27 /* WaranteeList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C64044A5239CEB6300FE3A27 /* WaranteeList.storyboard */; };
 		FA205933239BD05D0064686F /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA205932239BD05D0064686F /* LoginController.swift */; };
 		FA205935239BD4720064686F /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA205934239BD4720064686F /* SignupController.swift */; };
-		FA205937239C19600064686F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA205936239C19600064686F /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,9 +34,10 @@
 		3FEBEF76239BA19800A5A7E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50DBAF21B1CD2F3FF3D0025B /* Pods_warantee.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_warantee.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A9192ADC63094F1FC055F5B /* Pods-warantee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-warantee.release.xcconfig"; path = "Target Support Files/Pods-warantee/Pods-warantee.release.xcconfig"; sourceTree = "<group>"; };
+		C64044A3239CEA4800FE3A27 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C64044A5239CEB6300FE3A27 /* WaranteeList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WaranteeList.storyboard; sourceTree = "<group>"; };
 		FA205932239BD05D0064686F /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		FA205934239BD4720064686F /* SignupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupController.swift; sourceTree = "<group>"; };
-		FA205936239C19600064686F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +58,6 @@
 				06C34597A869628B30974617 /* Pods-warantee.debug.xcconfig */,
 				7A9192ADC63094F1FC055F5B /* Pods-warantee.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -81,6 +82,7 @@
 		3FEBEF64239BA19600A5A7E4 /* warantee */ = {
 			isa = PBXGroup;
 			children = (
+				C64044A3239CEA4800FE3A27 /* GoogleService-Info.plist */,
 				3FEBEF65239BA19600A5A7E4 /* AppDelegate.swift */,
 				3FEBEF67239BA19600A5A7E4 /* SceneDelegate.swift */,
 				3FEBEF69239BA19600A5A7E4 /* ViewController.swift */,
@@ -90,8 +92,8 @@
 				3FEBEF71239BA19800A5A7E4 /* Assets.xcassets */,
 				3FEBEF73239BA19800A5A7E4 /* LaunchScreen.storyboard */,
 				3FEBEF76239BA19800A5A7E4 /* Info.plist */,
-				FA205936239C19600064686F /* GoogleService-Info.plist */,
 				3FEBEF6E239BA19600A5A7E4 /* warantee.xcdatamodeld */,
+				C64044A5239CEB6300FE3A27 /* WaranteeList.storyboard */,
 			);
 			path = warantee;
 			sourceTree = "<group>";
@@ -166,7 +168,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FEBEF75239BA19800A5A7E4 /* LaunchScreen.storyboard in Resources */,
-				FA205937239C19600064686F /* GoogleService-Info.plist in Resources */,
+				C64044A4239CEA4800FE3A27 /* GoogleService-Info.plist in Resources */,
+				C64044A6239CEB6300FE3A27 /* WaranteeList.storyboard in Resources */,
 				3FEBEF72239BA19800A5A7E4 /* Assets.xcassets in Resources */,
 				3FEBEF6D239BA19600A5A7E4 /* Main.storyboard in Resources */,
 			);
