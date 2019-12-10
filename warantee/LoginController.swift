@@ -35,7 +35,7 @@ class LoginController: UIViewController {
         let password = txtPassword.text!
         
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
-           
+           print(authResult)
             if let firebaseError = error {
                 print(firebaseError.localizedDescription)
                 return
