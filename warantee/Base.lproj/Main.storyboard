@@ -198,6 +198,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oJO-0G-XBc">
+                                <rect key="frame" x="20" y="64" width="18" height="22"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="xmark" catalog="system"/>
+                                <connections>
+                                    <action selector="close" destination="xcc-69-7eM" eventType="touchUpInside" id="AZN-Cf-GMS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -205,6 +213,7 @@
                             <constraint firstItem="kiP-HD-7cG" firstAttribute="leading" secondItem="J2E-fl-CrM" secondAttribute="leadingMargin" constant="37" id="7t4-W6-arc"/>
                             <constraint firstItem="7eu-kx-5d6" firstAttribute="leading" secondItem="J2E-fl-CrM" secondAttribute="leadingMargin" constant="37" id="9nl-zi-NTD"/>
                             <constraint firstAttribute="trailingMargin" secondItem="8zt-N9-rER" secondAttribute="trailing" constant="37" id="9w9-tM-ObO"/>
+                            <constraint firstItem="oJO-0G-XBc" firstAttribute="leading" secondItem="6rw-C3-N1A" secondAttribute="leading" constant="20" id="DYM-Cj-atm"/>
                             <constraint firstItem="6XW-WJ-iTJ" firstAttribute="top" secondItem="7eu-kx-5d6" secondAttribute="bottom" constant="158.5" id="Pdi-YN-kxV"/>
                             <constraint firstAttribute="bottomMargin" secondItem="6XW-WJ-iTJ" secondAttribute="bottom" constant="195" id="Qki-7W-wws"/>
                             <constraint firstItem="8zt-N9-rER" firstAttribute="leading" secondItem="J2E-fl-CrM" secondAttribute="leadingMargin" constant="37" id="XHs-NH-HAK"/>
@@ -213,6 +222,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="6XW-WJ-iTJ" secondAttribute="trailing" constant="37" id="cib-4d-Duq"/>
                             <constraint firstItem="nOk-LS-PkJ" firstAttribute="leading" secondItem="J2E-fl-CrM" secondAttribute="leadingMargin" constant="37" id="hRq-tJ-j5u"/>
                             <constraint firstAttribute="trailingMargin" secondItem="nOk-LS-PkJ" secondAttribute="trailing" constant="263" id="hdT-k9-sM4"/>
+                            <constraint firstItem="oJO-0G-XBc" firstAttribute="top" secondItem="6rw-C3-N1A" secondAttribute="top" constant="20" id="iPT-0e-F4n"/>
                             <constraint firstItem="8zt-N9-rER" firstAttribute="top" secondItem="kiP-HD-7cG" secondAttribute="bottom" constant="15" id="t5J-Zl-sK8"/>
                             <constraint firstItem="6XW-WJ-iTJ" firstAttribute="leading" secondItem="J2E-fl-CrM" secondAttribute="leadingMargin" constant="37" id="tw9-Y7-fp9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="kiP-HD-7cG" secondAttribute="trailing" constant="296" id="wdB-Lt-RtS"/>
@@ -267,5 +277,6 @@
     <resources>
         <image name="mountain" width="1000" height="1500"/>
         <image name="warantee" width="230" height="199"/>
+        <image name="xmark" catalog="system" width="64" height="56"/>
     </resources>
 </document>
