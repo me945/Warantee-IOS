@@ -1,0 +1,34 @@
+//
+//  WaranteeCell.swift
+//  warantee
+//
+//  Created by Amad Khan on 13/12/2019.
+//  Copyright © 2019 student. All rights reserved.
+//
+
+import UIKit
+
+class WaranteeCell: UITableViewCell {
+
+    @IBOutlet weak var amountLabel: UILabel!
+    
+    @IBOutlet weak var sellerNameLabel: UILabel!
+    
+    
+    @IBOutlet weak var periodLabel: UILabel!
+    
+    
+    @IBOutlet weak var waranteeImage: UIImageView!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
+    }
+
+}
