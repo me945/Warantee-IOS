@@ -8,16 +8,20 @@
 
 import UIKit
 import Firebase
+import GoogleSignIn
 
 class LoginController: UIViewController {
 
+    //variables
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
+    @IBOutlet weak var signInButton: GIDSignInButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-      //if user exist, go to Menu
+     
+        
       Auth.auth().addStateDidChangeListener
       { (auth, user) in
           
@@ -26,9 +30,14 @@ class LoginController: UIViewController {
           }
           
       }
+        
+      GIDSignIn.sharedInstance()?.presentingViewController = self
+      // Automatically sign in the user.
+      GIDSignIn.sharedInstance()?.restorePreviousSignIn()
         // Do any additional setup after loading the view.
     }
     
+    //login
     @IBAction func login(_ sender: Any) {
         
         let email = txtEmail.text!
