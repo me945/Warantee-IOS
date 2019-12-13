@@ -15,15 +15,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.34999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mountain" translatesAutoresizingMaskIntoConstraints="NO" id="eNh-1v-cRU">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.34999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="mountain" translatesAutoresizingMaskIntoConstraints="NO" id="eNh-1v-cRU">
                                 <rect key="frame" x="1" y="0.0" width="413" height="896"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="warantee" translatesAutoresizingMaskIntoConstraints="NO" id="Osw-Rh-lBB">
-                                <rect key="frame" x="92" y="74" width="230" height="199"/>
+                                <rect key="frame" x="92" y="74" width="230" height="149"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="YMt-9M-L11">
-                                <rect key="frame" x="57" y="334.5" width="300" height="227.5"/>
+                                <rect key="frame" x="57" y="284.5" width="300" height="227.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bXT-RC-6YG">
                                         <rect key="frame" x="0.0" y="0.0" width="41" height="21"/>
@@ -89,8 +88,13 @@
                                     <constraint firstAttribute="height" constant="227.5" id="YuU-d5-h5f"/>
                                 </constraints>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n99-1F-e1W" customClass="GIDSignInButton">
+                                <rect key="frame" x="57" y="537" width="300" height="59"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="hi2-TL-E7h">
-                                <rect key="frame" x="82" y="672" width="250" height="30"/>
+                                <rect key="frame" x="82" y="622" width="250" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r4e-3E-JXq">
                                         <rect key="frame" x="0.0" y="0.0" width="187" height="30"/>
@@ -124,19 +128,28 @@
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="hi2-TL-E7h" firstAttribute="centerX" secondItem="eNh-1v-cRU" secondAttribute="centerX" id="40G-TB-bbm"/>
                             <constraint firstItem="Osw-Rh-lBB" firstAttribute="leading" secondItem="tO6-ry-vHh" secondAttribute="leading" constant="92" id="6oR-V9-0iC"/>
-                            <constraint firstItem="YMt-9M-L11" firstAttribute="centerY" secondItem="tO6-ry-vHh" secondAttribute="centerY" id="7Wz-Ab-okK"/>
+                            <constraint firstItem="YMt-9M-L11" firstAttribute="centerY" secondItem="tO6-ry-vHh" secondAttribute="centerY" constant="-50" id="7Wz-Ab-okK"/>
+                            <constraint firstItem="n99-1F-e1W" firstAttribute="top" secondItem="YMt-9M-L11" secondAttribute="bottom" constant="25" id="IDt-oO-yOQ"/>
                             <constraint firstItem="hi2-TL-E7h" firstAttribute="top" secondItem="YMt-9M-L11" secondAttribute="bottom" constant="110" id="Ko8-JE-Z85"/>
                             <constraint firstAttribute="trailing" secondItem="Osw-Rh-lBB" secondAttribute="trailing" constant="92" id="SBo-FK-YNy"/>
-                            <constraint firstItem="hi2-TL-E7h" firstAttribute="centerX" secondItem="oYg-dG-I0R" secondAttribute="centerX" id="boC-Oc-CB3"/>
                             <constraint firstItem="YMt-9M-L11" firstAttribute="centerX" secondItem="tO6-ry-vHh" secondAttribute="centerX" id="dIO-kM-bDh"/>
+                            <constraint firstItem="hi2-TL-E7h" firstAttribute="top" secondItem="n99-1F-e1W" secondAttribute="bottom" constant="26" id="eKr-Wu-5yQ"/>
+                            <constraint firstItem="eNh-1v-cRU" firstAttribute="centerY" secondItem="tO6-ry-vHh" secondAttribute="centerY" id="g1L-9n-2eb"/>
+                            <constraint firstItem="eNh-1v-cRU" firstAttribute="leading" secondItem="ugj-yw-x6Q" secondAttribute="leading" constant="1" id="hT0-hn-m6Z"/>
+                            <constraint firstItem="hi2-TL-E7h" firstAttribute="centerX" secondItem="YMt-9M-L11" secondAttribute="centerX" id="kYs-fh-Uab"/>
                             <constraint firstItem="Osw-Rh-lBB" firstAttribute="top" secondItem="tO6-ry-vHh" secondAttribute="top" constant="74" id="muP-Fn-IFk"/>
+                            <constraint firstItem="eNh-1v-cRU" firstAttribute="top" secondItem="tO6-ry-vHh" secondAttribute="topMargin" constant="-44" id="s35-qT-rKH"/>
+                            <constraint firstItem="hi2-TL-E7h" firstAttribute="centerX" secondItem="n99-1F-e1W" secondAttribute="centerX" id="sc2-uI-tEJ"/>
+                            <constraint firstItem="n99-1F-e1W" firstAttribute="leading" secondItem="YMt-9M-L11" secondAttribute="leading" id="tCz-IC-NpV"/>
                             <constraint firstItem="YMt-9M-L11" firstAttribute="top" secondItem="Osw-Rh-lBB" secondAttribute="bottom" constant="61.5" id="x5q-v5-hvj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ugj-yw-x6Q"/>
                     </view>
                     <navigationItem key="navigationItem" id="Y00-DI-qgq"/>
                     <connections>
+                        <outlet property="signInButton" destination="n99-1F-e1W" id="dDb-dL-efF"/>
                         <outlet property="txtEmail" destination="Yui-YI-aMq" id="X7s-Ft-5gl"/>
                         <outlet property="txtPassword" destination="0XC-Kv-Qyd" id="82G-S9-4Xv"/>
                     </connections>
