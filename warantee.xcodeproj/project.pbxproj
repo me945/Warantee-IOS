@@ -15,6 +15,7 @@
 		3FEBEF72239BA19800A5A7E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FEBEF71239BA19800A5A7E4 /* Assets.xcassets */; };
 		3FEBEF75239BA19800A5A7E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FEBEF73239BA19800A5A7E4 /* LaunchScreen.storyboard */; };
 		6B865133A4D19743E172FAA7 /* Pods_warantee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50DBAF21B1CD2F3FF3D0025B /* Pods_warantee.framework */; };
+		C62AE08823A43BED00D62E9F /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C62AE08623A43BEC00D62E9F /* Model.xcdatamodeld */; };
 		C64044A4239CEA4800FE3A27 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C64044A3239CEA4800FE3A27 /* GoogleService-Info.plist */; };
 		C6AD494B23A39ACA00B489FB /* WaranteeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AD494A23A39ACA00B489FB /* WaranteeTableViewController.swift */; };
 		C6AD494D23A39B9800B489FB /* Warantee.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AD494C23A39B9800B489FB /* Warantee.swift */; };
@@ -36,6 +37,7 @@
 		3FEBEF76239BA19800A5A7E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50DBAF21B1CD2F3FF3D0025B /* Pods_warantee.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_warantee.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A9192ADC63094F1FC055F5B /* Pods-warantee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-warantee.release.xcconfig"; path = "Target Support Files/Pods-warantee/Pods-warantee.release.xcconfig"; sourceTree = "<group>"; };
+		C62AE08723A43BED00D62E9F /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		C64044A3239CEA4800FE3A27 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C6AD494A23A39ACA00B489FB /* WaranteeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaranteeTableViewController.swift; sourceTree = "<group>"; };
 		C6AD494C23A39B9800B489FB /* Warantee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Warantee.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 				FA205934239BD4720064686F /* SignupController.swift */,
 				FA205932239BD05D0064686F /* LoginController.swift */,
 				3FEBEF6B239BA19600A5A7E4 /* Main.storyboard */,
+				C62AE08623A43BEC00D62E9F /* Model.xcdatamodeld */,
 				C6AD494A23A39ACA00B489FB /* WaranteeTableViewController.swift */,
 				C6AD494E23A3B2FB00B489FB /* WaranteeCell.swift */,
 				C6AD494C23A39B9800B489FB /* Warantee.swift */,
@@ -253,6 +256,7 @@
 				3FEBEF66239BA19600A5A7E4 /* AppDelegate.swift in Sources */,
 				FA205935239BD4720064686F /* SignupController.swift in Sources */,
 				3FEBEF68239BA19600A5A7E4 /* SceneDelegate.swift in Sources */,
+				C62AE08823A43BED00D62E9F /* Model.xcdatamodeld in Sources */,
 				FA205933239BD05D0064686F /* LoginController.swift in Sources */,
 				C6AD494B23A39ACA00B489FB /* WaranteeTableViewController.swift in Sources */,
 			);
@@ -463,6 +467,16 @@
 			);
 			currentVersion = 3FEBEF6F239BA19600A5A7E4 /* warantee.xcdatamodel */;
 			path = warantee.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		C62AE08623A43BEC00D62E9F /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C62AE08723A43BED00D62E9F /* Model.xcdatamodel */,
+			);
+			currentVersion = C62AE08723A43BED00D62E9F /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

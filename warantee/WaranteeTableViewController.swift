@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import CoreData
 
 class WaranteeTableViewController: UITableViewController {
     var WaranteeList:[Warantee] = []
@@ -36,6 +37,8 @@ class WaranteeTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     func warantyRequest(token:String?, error: Error?) {
+        let thisAppDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = thisAppDelegate.persistentContainer.viewContext
         if let url = URL(string: "https://www.vrpacman.com/waranty") {
             var request = URLRequest(url: url)
             request.setValue(token, forHTTPHeaderField:"AuthToken")
@@ -47,10 +50,24 @@ class WaranteeTableViewController: UITableViewController {
                      let res = try JSONDecoder().decode([Warantee].self, from: data)
                     for i in stride(from: 0, to: res.count, by:1){
                         let w = res[i]
+                        let waranty = Waranty(context:context)
+                        waranty.id = Int64(w.id)
+                        waranty.uid = w.uid
+                        waranty.date = w.date
+                        waranty.amount = w.amount
+                        waranty.category = Int16(w.category)
+                        waranty.warantyPeriod = Int64(w.warantyPeriod)
+                        waranty.sellerName = w.sellerName
+                        waranty.sellerPhone = w.sellerPhone
+                        waranty.sellerEmail = w.sellerEmail
+                        waranty.location = w.location
+                        waranty.createdAt = w.createdAt
+                        waranty.updatedAt = w.updatedAt
                         print(w.sellerEmail)
                         self.WaranteeList.append(Warantee(id: w.id, uid: w.uid, date: w.date, amount: w.amount, category: w.category, warantyPeriod: w.warantyPeriod, sellerName: w.sellerName, sellerPhone: w.sellerPhone, sellerEmail: w.sellerEmail, location: w.location, createdAt: w.createdAt, updatedAt: w.updatedAt))
                         self.warantyImageRequest(token:token, error: error, waranty: w, count: i, totalCount: res.count)
                     }
+                    thisAppDelegate.saveContext()
                   } catch let error {
                      print(error)
                   }
