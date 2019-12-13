@@ -51,7 +51,6 @@ class WaranteeTableViewController: UITableViewController {
                         self.WaranteeList.append(Warantee(id: w.id, uid: w.uid, date: w.date, amount: w.amount, category: w.category, warantyPeriod: w.warantyPeriod, sellerName: w.sellerName, sellerPhone: w.sellerPhone, sellerEmail: w.sellerEmail, location: w.location, createdAt: w.createdAt, updatedAt: w.updatedAt))
                         self.warantyImageRequest(token:token, error: error, waranty: w, count: i, totalCount: res.count)
                     }
-                    print("\(data)")
                   } catch let error {
                      print(error)
                   }
@@ -69,8 +68,6 @@ class WaranteeTableViewController: UITableViewController {
             URLSession.shared.downloadTask(with: request) { localURL, response, error in
             if let localURL = localURL {
                   do {
-                    print("localUrl", localURL)
-                    print("destination url", destinationFileUrl)
                     try? FileManager.default.removeItem(at: destinationFileUrl)
                     try FileManager.default.moveItem(at: localURL, to: destinationFileUrl)
                     if(count == totalCount - 1) {
