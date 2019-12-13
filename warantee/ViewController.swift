@@ -51,33 +51,9 @@ class ViewController: UIViewController {
             }
             
         }
-        Auth.auth().currentUser?.getIDToken(completion: warantyRequest)
-        
-       
     }
 
-    func warantyRequest(token:String?, error: Error?) {
-        print(token)
-            if let url = URL(string: "https://www.vrpacman.com/waranty") {
-                var request = URLRequest(url: url)
-                request.setValue(token, forHTTPHeaderField:"AuthToken")
-                request.httpMethod = "GET"
-               URLSession.shared.dataTask(with: request) { data, response, error in
-                if let data = data {
-                      do {
-                        let output = String(data: data,encoding:String.Encoding.utf8) as String?
-                         let res = try JSONDecoder().decode([Warantee].self, from: data)
-                        for w in res{
-                            print(w.sellerName)
-                        }
-                        print("\(data)")
-                      } catch let error {
-                         print(error)
-                      }
-                   }
-               }.resume()
-            }
-        }
+    
     func goToLogin(){
         let storyboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let loginVC:LoginController = storyboard.instantiateViewController(withIdentifier: "LoginController") as! LoginController
