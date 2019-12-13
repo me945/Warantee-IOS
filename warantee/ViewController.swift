@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import GoogleSignIn
 
 class ViewController: UIViewController {
 
@@ -22,6 +23,9 @@ class ViewController: UIViewController {
         } catch let signOutError as NSError {
           print ("Error signing out: %@", signOutError)
         }
+        
+        //logs out google account
+        GIDSignIn.sharedInstance().signOut()
         
     }
     struct Warantee: Codable { // or Decodable
