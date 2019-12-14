@@ -90,7 +90,7 @@ class WarantyInfoViewController: UIViewController {
                         self.avPlayer = AVPlayer(url: destinationFileUrl)
                                                       let avPlayerController = AVPlayerViewController()
                         avPlayerController.player = self.avPlayer
-                                                      avPlayerController.view.frame = CGRect(x: 0, y: 44, width: UIScreen.main.bounds.size.width, height: 196)
+                                                      avPlayerController.view.frame = CGRect(x: 0, y: 70, width: UIScreen.main.bounds.size.width, height: 196)
 
                                                       // Turn on video controlls
                                                       avPlayerController.showsPlaybackControls = true
@@ -108,6 +108,10 @@ class WarantyInfoViewController: UIViewController {
                }
            }.resume()
         }
+    }
+    
+    @IBAction func backButtonPressed(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
     /*
     // MARK: - Navigation

@@ -373,20 +373,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WjA-gs-Xxh">
-                                <rect key="frame" x="0.0" y="240" width="180" height="168"/>
+                                <rect key="frame" x="0.0" y="269" width="180" height="139"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="180" id="phQ-7f-gCC"/>
                                 </constraints>
                             </imageView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wBL-Z9-SY6">
-                                <rect key="frame" x="0.0" y="44" width="414" height="196"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="414" id="NJO-jU-uw5"/>
-                                </constraints>
-                                <connections>
-                                    <segue destination="mIr-iQ-3ld" kind="embed" id="W1t-bt-pZw"/>
-                                </connections>
-                            </containerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seller Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VI4-JG-oke">
                                 <rect key="frame" x="20" y="426" width="97" height="44"/>
                                 <constraints>
@@ -524,6 +515,18 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zhj-BJ-9AG">
+                                <rect key="frame" x="20" y="32" width="75" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                <state key="normal" title="&lt; Back"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="borderWidth" value="0"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="NZD-zs-EcQ" eventType="touchUpInside" id="RGt-PA-dUV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -544,16 +547,13 @@
                             <constraint firstItem="7ry-D8-SjP" firstAttribute="leading" secondItem="f1o-J4-j1d" secondAttribute="leading" constant="20" id="Gip-mh-iD5"/>
                             <constraint firstItem="gBi-Ud-eZh" firstAttribute="leading" secondItem="LEb-7o-9I9" secondAttribute="leading" id="IbD-av-7Ug"/>
                             <constraint firstItem="hlI-zG-9wQ" firstAttribute="leading" secondItem="f1o-J4-j1d" secondAttribute="leading" constant="20" id="IuL-ad-feE"/>
-                            <constraint firstItem="wBL-Z9-SY6" firstAttribute="leading" secondItem="f1o-J4-j1d" secondAttribute="leading" id="KMG-Op-OE5"/>
                             <constraint firstItem="1OB-zg-Ygz" firstAttribute="leading" secondItem="f1o-J4-j1d" secondAttribute="leading" constant="20" id="NKf-ef-rjW"/>
                             <constraint firstItem="LEb-7o-9I9" firstAttribute="leading" secondItem="dWJ-Vv-u8v" secondAttribute="leading" id="NkT-Yh-1Ql"/>
-                            <constraint firstItem="wBL-Z9-SY6" firstAttribute="top" secondItem="f1o-J4-j1d" secondAttribute="top" id="R0d-NB-8Uh"/>
                             <constraint firstItem="XhS-73-MuV" firstAttribute="centerY" secondItem="rbj-M1-UJW" secondAttribute="centerY" id="TPe-kG-XBY"/>
                             <constraint firstItem="a80-hV-9b0" firstAttribute="top" secondItem="7ry-D8-SjP" secondAttribute="bottom" constant="18" id="Vsf-Hk-Wpv"/>
                             <constraint firstItem="hlI-zG-9wQ" firstAttribute="top" secondItem="a80-hV-9b0" secondAttribute="bottom" constant="18" id="WlL-TM-T3f"/>
                             <constraint firstItem="JZP-es-guV" firstAttribute="leading" secondItem="ADo-NG-QHG" secondAttribute="leading" id="Yxn-Zj-N8f"/>
                             <constraint firstItem="VI4-JG-oke" firstAttribute="leading" secondItem="f1o-J4-j1d" secondAttribute="leading" constant="20" id="aL0-fg-j4o"/>
-                            <constraint firstItem="WjA-gs-Xxh" firstAttribute="top" secondItem="wBL-Z9-SY6" secondAttribute="bottom" id="dOD-5R-Tc2"/>
                             <constraint firstItem="VI4-JG-oke" firstAttribute="centerY" secondItem="d5L-nQ-dQD" secondAttribute="centerY" id="dgq-h3-I6d"/>
                             <constraint firstItem="ADo-NG-QHG" firstAttribute="leading" secondItem="VI4-JG-oke" secondAttribute="trailing" constant="81" id="dzh-JO-29m"/>
                             <constraint firstItem="gBi-Ud-eZh" firstAttribute="top" secondItem="LEb-7o-9I9" secondAttribute="bottom" constant="17" id="jDp-UM-FXy"/>
@@ -561,7 +561,7 @@
                             <constraint firstItem="bpp-2k-6v3" firstAttribute="leading" secondItem="gBi-Ud-eZh" secondAttribute="leading" id="le6-ji-0M2"/>
                             <constraint firstItem="ADo-NG-QHG" firstAttribute="top" secondItem="WjA-gs-Xxh" secondAttribute="bottom" constant="18" id="q0i-ri-Tmt"/>
                             <constraint firstItem="VI4-JG-oke" firstAttribute="top" secondItem="WjA-gs-Xxh" secondAttribute="bottom" constant="18" id="rKt-xj-SR1"/>
-                            <constraint firstItem="WjA-gs-Xxh" firstAttribute="top" secondItem="f1o-J4-j1d" secondAttribute="top" constant="196" id="rdv-Bb-gOJ"/>
+                            <constraint firstItem="WjA-gs-Xxh" firstAttribute="top" secondItem="f1o-J4-j1d" secondAttribute="top" constant="225" id="rdv-Bb-gOJ"/>
                             <constraint firstItem="ADo-NG-QHG" firstAttribute="top" secondItem="WjA-gs-Xxh" secondAttribute="bottom" constant="18" id="xaR-Ul-HtH"/>
                             <constraint firstItem="WjA-gs-Xxh" firstAttribute="leading" secondItem="f1o-J4-j1d" secondAttribute="leading" id="z6t-ty-Eur"/>
                         </constraints>
@@ -581,14 +581,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mAo-WH-njr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1440.5797101449277" y="53.571428571428569"/>
-        </scene>
-        <!--AV Player View Controller-->
-        <scene sceneID="lKe-0h-KPU">
-            <objects>
-                <avPlayerViewController videoGravity="AVLayerVideoGravityResizeAspect" id="mIr-iQ-3ld" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FPu-VQ-nH7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="752" y="-574"/>
         </scene>
     </scenes>
     <resources>
