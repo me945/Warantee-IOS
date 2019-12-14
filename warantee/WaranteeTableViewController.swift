@@ -131,6 +131,17 @@ class WaranteeTableViewController: UITableViewController {
         return cell
     }
 
+    override func tableView(_ tableView:UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("cell selected")
+        let storyboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let warantyInfoVC:WarantyInfoViewController = storyboard.instantiateViewController(withIdentifier: "WarantyInfo") as! WarantyInfoViewController
+        warantyInfoVC.warantyId = self.WaranteeList[indexPath.row].id
+        
+        //go to new screen in fullscreen
+        warantyInfoVC.modalPresentationStyle = .fullScreen
+        self.present(warantyInfoVC, animated: true, completion: nil)
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
