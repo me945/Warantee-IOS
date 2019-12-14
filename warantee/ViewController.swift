@@ -107,24 +107,25 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         myImageView.frame = CGRect(x:0, y:0, width:50, height:50)
        var rowString = String()
        switch row {
-       case 0:
+        case 0:
+            rowString = "all"
+            myImageView.image = UIImage(named:"warantee")
+       case 1:
            rowString = "food"
            myImageView.image = UIImage(named:"food")
-       case 1:
+       case 2:
            rowString = "grocery"
            myImageView.image = UIImage(named:"grocery")
-        case 2:
+        case 3:
             rowString = "travel"
             myImageView.image = UIImage(named:"travel")
-        case 3:
+        case 4:
             rowString = "electronics"
             myImageView.image = UIImage(named:"electronics")
-        case 4:
+        case 5:
             rowString = "others"
             myImageView.image = UIImage(named:"others")
-        case 5:
-        rowString = "all"
-        myImageView.image = UIImage(named:"warantee")
+        
        default:
            rowString = "Error: too many rows"
            myImageView.image = nil
@@ -138,6 +139,36 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
        myView.addSubview(myImageView)
 
        return myView
+    }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        var tv = self.children[0] as! WaranteeTableViewController
+        tv.WaranteeList.removeAll()
+        tv.tableView.reloadData()
+        print(tv.WaranteeList.isEmpty)
+        let thisAppDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = thisAppDelegate.persistentContainer.viewContext
+        
+        let req:NSFetchRequest<Waranty> = Waranty.fetchRequest()
+        if(row != 0) {
+            req.predicate = NSPredicate(format: "category = %@", NSNumber(integerLiteral:row - 1))
+        }
+        do{
+            let warantees = try context.fetch(req)
+            print(warantees.count)
+            for w in warantees {
+                tv.WaranteeList.append(WaranteeTableViewController.Warantee(id: Int(w.id), uid: w.uid!, date: w.date!, amount: w.amount, category: Int(w.category), warantyPeriod: Int(w.warantyPeriod), sellerName: w.sellerName!, sellerPhone: w.sellerPhone!, sellerEmail: w.sellerEmail!, location: w.location!, createdAt: w.createdAt!, updatedAt: w.updatedAt!))
+            }
+            tv.tableView.reloadData()
+        }
+        catch let error {
+           print(error)
+        }
+      //self.performSegue(withIdentifier: "sendResult", sender: row)
+//        if(row == 5) {
+//            self.performSegue(withIdentifier: "sendResult", sender: self)
+//        } else {
+//
+//        }
     }
 
 }

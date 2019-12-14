@@ -29,6 +29,7 @@ class WaranteeTableViewController: UITableViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        deleteAllData(entity: "Waranty")
         Auth.auth().currentUser?.getIDToken(completion: warantyRequest)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -48,6 +49,7 @@ class WaranteeTableViewController: UITableViewController {
                   do {
                     _ = String(data: data,encoding:String.Encoding.utf8) as String?
                      let res = try JSONDecoder().decode([Warantee].self, from: data)
+                    print(res.count)
                     for i in stride(from: 0, to: res.count, by:1){
                         let w = res[i]
                         let waranty = Waranty(context:context)
@@ -141,7 +143,22 @@ class WaranteeTableViewController: UITableViewController {
         warantyInfoVC.modalPresentationStyle = .fullScreen
         self.present(warantyInfoVC, animated: true, completion: nil)
     }
-    
+    func deleteAllData(entity: String)
+    {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
+        fetchRequest.returnsObjectsAsFaults = false
+        do {
+            let results = try context.fetch(fetchRequest)
+            for object in results {
+                guard let objectData = object as? NSManagedObject else {continue}
+                context.delete(objectData)
+            }
+        } catch let error {
+            print("Detele all data in \(entity) error :", error)
+        }
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -177,14 +194,19 @@ class WaranteeTableViewController: UITableViewController {
     }
     */
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
+//    // MARK: - Navigation
+//
+//    // In a storyboard-based application, you will often want to do a little preparation before navigation
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        // Get the new view controller using segue.destination.
+//        // Pass the selected object to the new view controller.
+//        if(segue.identifier == "sendResult") {
+//            var picker:UIPickerView = sender as! UIPickerView
+//            print(picker.selectedRow(inComponent: 0))
+//        }
+//        
+//    }
+    
 
 }
