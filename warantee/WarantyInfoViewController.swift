@@ -2,7 +2,7 @@
 //  WarantyInfoViewController.swift
 //  warantee
 //
-//  Created by Amad Khan on 14/12/2019.
+//  Created by Humaid Khan on 14/12/2019.
 //  Copyright © 2019 student. All rights reserved.
 //
 
@@ -11,6 +11,7 @@ import CoreData
 import Firebase
 import AVKit
 import AVFoundation
+import MapKit
 
 class WarantyInfoViewController: UIViewController {
 
@@ -37,6 +38,9 @@ class WarantyInfoViewController: UIViewController {
     
     @IBOutlet weak var warantyAvPlayer: UIView!
     
+    
+    @IBOutlet weak var mapView: MKMapView!
+    
     private var warantyUId = ""
     var avPlayer: AVPlayer!
     override func viewDidLoad() {
@@ -56,8 +60,44 @@ class WarantyInfoViewController: UIViewController {
             amountLabel.text = String(waranty.amount)
             dateLabel.text = waranty.date
             warantyPeriodLabel.text = String(waranty.warantyPeriod)
-            categoryLabel.text = String(waranty.category)
+            switch waranty.category {
+            case 0:
+                categoryLabel.text = "Food"
+            case 1:
+                categoryLabel.text = "Grocery"
+             case 2:
+                categoryLabel.text = "Travel"
+             case 3:
+                categoryLabel.text = "Electronics"
+             case 4:
+                categoryLabel.text = "Others"
+            default:
+                categoryLabel.text = "None"
+            }
             self.warantyUId = waranty.uid ?? ""
+            let request = MKLocalSearch.Request()
+            request.naturalLanguageQuery = waranty.location
+            request.region = mapView.region
+            let search = MKLocalSearch(request: request)
+            search.start{ response, _ in
+                guard let respone = response else {
+                    return
+                }
+                let placemark = response?.mapItems[0].placemark
+                self.mapView.removeAnnotations(self.mapView.annotations)
+                let annotation = MKPointAnnotation()
+                annotation.coordinate = placemark!.coordinate
+                annotation.title = placemark?.name
+                if let city = placemark?.locality,
+                    let state = placemark?.administrativeArea {
+                    annotation.subtitle = "(city) (state)"
+                }
+                self.mapView.addAnnotation(annotation)
+                let span = MKCoordinateSpan(latitudeDelta:0.05, longitudeDelta: 0.05)
+                let region = MKCoordinateRegion(center: placemark!.coordinate, span: span)
+                self.mapView.setRegion(region, animated: true)
+                
+            }
             Auth.auth().currentUser?.getIDToken(completion: warantyVideoRequest)
             let documentsUrl:URL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
             let fileURL = documentsUrl.appendingPathComponent(String(waranty.id) + ".jpg")
@@ -90,7 +130,7 @@ class WarantyInfoViewController: UIViewController {
                         self.avPlayer = AVPlayer(url: destinationFileUrl)
                                                       let avPlayerController = AVPlayerViewController()
                         avPlayerController.player = self.avPlayer
-                                                      avPlayerController.view.frame = CGRect(x: 0, y: 44, width: UIScreen.main.bounds.size.width, height: 196)
+                                                      avPlayerController.view.frame = CGRect(x: 0, y: 70, width: UIScreen.main.bounds.size.width, height: 196)
 
                                                       // Turn on video controlls
                                                       avPlayerController.showsPlaybackControls = true
@@ -108,6 +148,12 @@ class WarantyInfoViewController: UIViewController {
                }
            }.resume()
         }
+    }
+    
+   
+    @IBAction func backButtonPressed(_
+        sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
     /*
     // MARK: - Navigation
