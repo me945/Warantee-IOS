@@ -13,6 +13,7 @@ import CoreData
 
 class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
+   
     @IBOutlet weak var picker: UIPickerView!
     //logout
     @IBAction func signOut(_ sender: Any) {
@@ -163,6 +164,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         catch let error {
            print(error)
         }
+        
+        
       //self.performSegue(withIdentifier: "sendResult", sender: row)
 //        if(row == 5) {
 //            self.performSegue(withIdentifier: "sendResult", sender: self)
@@ -170,6 +173,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 //
 //        }
     }
-
+  
+    @IBAction func addButtonPressed(_ sender: Any) {
+    }
+    
 }
 
