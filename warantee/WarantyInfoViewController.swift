@@ -16,7 +16,6 @@ import MapKit
 class WarantyInfoViewController: UIViewController {
 
     var warantyId = -1
-    let locationManager = CLLocationManager()
     @IBOutlet weak var sellerNameLabel: UILabel!
     
     @IBOutlet weak var sellerPhoneLabel: UILabel!
@@ -138,7 +137,7 @@ class WarantyInfoViewController: UIViewController {
         }
     }
     
-    
+   
     @IBAction func backButtonPressed(_
         sender: Any) {
         dismiss(animated: true, completion: nil)
