@@ -2,7 +2,7 @@
 //  WaranteeTableViewController.swift
 //  warantee
 //
-//  Created by Amad Khan on 13/12/2019.
+//  Created by Humaid Khan on 13/12/2019.
 //  Copyright © 2019 student. All rights reserved.
 //
 
@@ -122,6 +122,21 @@ class WaranteeTableViewController: UITableViewController {
         cell.sellerNameLabel.text = warantee.sellerName
         cell.amountLabel.text = String(warantee.amount)
         cell.periodLabel.text = String(warantee.warantyPeriod)
+        switch warantee.category {
+         
+        case 0:
+            cell.iconLabel.image = UIImage(named:"food")
+        case 1:
+            cell.iconLabel.image = UIImage(named:"grocery")
+         case 2:
+             cell.iconLabel.image = UIImage(named:"travel")
+         case 3:
+             cell.iconLabel.image = UIImage(named:"electronics")
+         case 4:
+             cell.iconLabel.image = UIImage(named:"others")
+        default:
+            cell.iconLabel.image = UIImage(named:"warantee")
+        }
         let documentsUrl:URL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let fileURL = documentsUrl.appendingPathComponent(String(warantee.id) + ".jpg")
         do{
