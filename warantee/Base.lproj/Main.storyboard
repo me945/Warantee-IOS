@@ -527,6 +527,13 @@
                                     <action selector="backButtonPressed:" destination="NZD-zs-EcQ" eventType="touchUpInside" id="RGt-PA-dUV"/>
                                 </connections>
                             </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="cFe-wO-fgu">
+                                <rect key="frame" x="176" y="269" width="240" height="139"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="Dar-Ju-syI"/>
+                                    <constraint firstAttribute="height" constant="139" id="Qhb-Tv-jTN"/>
+                                </constraints>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -554,7 +561,9 @@
                             <constraint firstItem="hlI-zG-9wQ" firstAttribute="top" secondItem="a80-hV-9b0" secondAttribute="bottom" constant="18" id="WlL-TM-T3f"/>
                             <constraint firstItem="JZP-es-guV" firstAttribute="leading" secondItem="ADo-NG-QHG" secondAttribute="leading" id="Yxn-Zj-N8f"/>
                             <constraint firstItem="VI4-JG-oke" firstAttribute="leading" secondItem="f1o-J4-j1d" secondAttribute="leading" constant="20" id="aL0-fg-j4o"/>
+                            <constraint firstItem="cFe-wO-fgu" firstAttribute="leading" secondItem="f1o-J4-j1d" secondAttribute="leading" constant="176" id="aRb-ZN-53t"/>
                             <constraint firstItem="VI4-JG-oke" firstAttribute="centerY" secondItem="d5L-nQ-dQD" secondAttribute="centerY" id="dgq-h3-I6d"/>
+                            <constraint firstItem="cFe-wO-fgu" firstAttribute="top" secondItem="f1o-J4-j1d" secondAttribute="top" constant="225" id="dvz-8m-UBg"/>
                             <constraint firstItem="ADo-NG-QHG" firstAttribute="leading" secondItem="VI4-JG-oke" secondAttribute="trailing" constant="81" id="dzh-JO-29m"/>
                             <constraint firstItem="gBi-Ud-eZh" firstAttribute="top" secondItem="LEb-7o-9I9" secondAttribute="bottom" constant="17" id="jDp-UM-FXy"/>
                             <constraint firstItem="ADo-NG-QHG" firstAttribute="leading" secondItem="VI4-JG-oke" secondAttribute="trailing" constant="81" id="l7u-X3-Dy3"/>
@@ -571,6 +580,7 @@
                         <outlet property="amountLabel" destination="LEb-7o-9I9" id="pil-FL-peG"/>
                         <outlet property="categoryLabel" destination="XhS-73-MuV" id="tsv-yZ-JRX"/>
                         <outlet property="dateLabel" destination="gBi-Ud-eZh" id="8TU-xC-Su2"/>
+                        <outlet property="mapView" destination="cFe-wO-fgu" id="CWM-BH-dUw"/>
                         <outlet property="sellerEmailLabel" destination="dWJ-Vv-u8v" id="M4h-A9-u4g"/>
                         <outlet property="sellerNameLabel" destination="ADo-NG-QHG" id="Xfd-wH-PjB"/>
                         <outlet property="sellerPhoneLabel" destination="JZP-es-guV" id="IfO-U3-yVB"/>

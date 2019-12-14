@@ -11,10 +11,12 @@ import CoreData
 import Firebase
 import AVKit
 import AVFoundation
+import MapKit
 
 class WarantyInfoViewController: UIViewController {
 
     var warantyId = -1
+    let locationManager = CLLocationManager()
     @IBOutlet weak var sellerNameLabel: UILabel!
     
     @IBOutlet weak var sellerPhoneLabel: UILabel!
@@ -37,6 +39,9 @@ class WarantyInfoViewController: UIViewController {
     
     @IBOutlet weak var warantyAvPlayer: UIView!
     
+    
+    @IBOutlet weak var mapView: MKMapView!
+    
     private var warantyUId = ""
     var avPlayer: AVPlayer!
     override func viewDidLoad() {
@@ -58,6 +63,29 @@ class WarantyInfoViewController: UIViewController {
             warantyPeriodLabel.text = String(waranty.warantyPeriod)
             categoryLabel.text = String(waranty.category)
             self.warantyUId = waranty.uid ?? ""
+            let request = MKLocalSearch.Request()
+            request.naturalLanguageQuery = waranty.location
+            request.region = mapView.region
+            let search = MKLocalSearch(request: request)
+            search.start{ response, _ in
+                guard let respone = response else {
+                    return
+                }
+                let placemark = response?.mapItems[0].placemark
+                self.mapView.removeAnnotations(self.mapView.annotations)
+                let annotation = MKPointAnnotation()
+                annotation.coordinate = placemark!.coordinate
+                annotation.title = placemark?.name
+                if let city = placemark?.locality,
+                    let state = placemark?.administrativeArea {
+                    annotation.subtitle = "(city) (state)"
+                }
+                self.mapView.addAnnotation(annotation)
+                let span = MKCoordinateSpan(latitudeDelta:0.05, longitudeDelta: 0.05)
+                let region = MKCoordinateRegion(center: placemark!.coordinate, span: span)
+                self.mapView.setRegion(region, animated: true)
+                
+            }
             Auth.auth().currentUser?.getIDToken(completion: warantyVideoRequest)
             let documentsUrl:URL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
             let fileURL = documentsUrl.appendingPathComponent(String(waranty.id) + ".jpg")
@@ -110,7 +138,9 @@ class WarantyInfoViewController: UIViewController {
         }
     }
     
-    @IBAction func backButtonPressed(_ sender: Any) {
+    
+    @IBAction func backButtonPressed(_
+        sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     /*
