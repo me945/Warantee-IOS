@@ -2,7 +2,7 @@
 //  WarantyInfoViewController.swift
 //  warantee
 //
-//  Created by Amad Khan on 14/12/2019.
+//  Created by Humaid Khan on 14/12/2019.
 //  Copyright © 2019 student. All rights reserved.
 //
 
@@ -60,7 +60,20 @@ class WarantyInfoViewController: UIViewController {
             amountLabel.text = String(waranty.amount)
             dateLabel.text = waranty.date
             warantyPeriodLabel.text = String(waranty.warantyPeriod)
-            categoryLabel.text = String(waranty.category)
+            switch waranty.category {
+            case 0:
+                categoryLabel.text = "Food"
+            case 1:
+                categoryLabel.text = "Grocery"
+             case 2:
+                categoryLabel.text = "Travel"
+             case 3:
+                categoryLabel.text = "Electronics"
+             case 4:
+                categoryLabel.text = "Others"
+            default:
+                categoryLabel.text = "None"
+            }
             self.warantyUId = waranty.uid ?? ""
             let request = MKLocalSearch.Request()
             request.naturalLanguageQuery = waranty.location
