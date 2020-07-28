@@ -1,2 +1,2 @@
 # Warantee-IOS
-its an application that stores users warranty information
+An application that stores and manages your Waranties
